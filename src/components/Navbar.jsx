@@ -62,7 +62,7 @@ function Navbar({
               <div className="hidden md:block absolute top-[300%] left-1/2 -translate-x-1/2  bg-white shadow-2xl rounded-lg shadow-gray-400 px-4 py-6">
                 <h1 className="text-base font-bold border-b-2 py-2">Cart</h1>
                 {(count !== 0 && cart)? <>
-                    <div className=" flex gap-4 items-center w-max py-4 text-sm">
+                    <div className=" flex gap-4 items-center w-max py-4 text-sm text-gray-600">
                   <img
                     className="size-14 rounded-md"
                     src={`/assets/image-product-${activeTab}.jpg`}
@@ -72,7 +72,7 @@ function Navbar({
                     <p>Fall Limited Edition Sneakers</p>
                     <p>
                       $125 x {count} {'   '}
-                      <span className="font-bold">${count * 125}</span>
+                      <span className="font-bold text-black">${count * 125}</span>
                     </p>
                   </div>
                   <img
