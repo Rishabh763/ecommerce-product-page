@@ -5,6 +5,8 @@ function App() {
   const [activeTab, setActiveTab] = useState(1);
   const [isVisible, setIsVisible] = useState(false);
   const [count, setCount] = useState(0);
+  const [cart, setCart] = useState(false);
+  const [cartOpen, setCartOpen] = useState(false);
   
   const changeTab = (index) => {
     setActiveTab(index + 1);
@@ -13,6 +15,13 @@ function App() {
   const handleOverlay = () => {
     setIsVisible(!isVisible);
   };
+
+  const handleCart = () => {
+    setCart(!cart);
+  }
+  const handleCartOpen = () => {
+    setCartOpen(!cartOpen);
+  }
 
   const next = () => {
     if (activeTab < 4) {
@@ -38,8 +47,16 @@ function App() {
   const items = [1, 2, 3, 4];
   return (
     <main className="content-grid min-h-screen">
-      <Navbar />
+      <Navbar cart={cart} count={count} onToggleCart={handleCartOpen} cartOpen={cartOpen}/>
+      {
+        cartOpen ?
+        <div className="block md:hidden w-full h-12 bg-white p-4 shadow">
 
+        
+      </div> : null
+      }
+      
+      
 
       {/* overlay div start */}
 
@@ -145,10 +162,15 @@ function App() {
               <div className="p-1">{count}</div>
               <button className="p-6 bg-transparent grid place-items-center" onClick={increment}><img src="/assets/icon-plus.svg" alt=""/></button>
             </div>
-            <button className="py-4 px-6 bg-[#ff7d1a] rounded-lg flex gap-4 font-bold items-center"><img className="fill-black text-black" src="/assets/icon-cart.svg" alt="" />Add to cart</button>
+            <button className="py-4 px-6 bg-[#ff7d1a] rounded-lg flex gap-4 font-bold items-center" onClick={handleCart}><img className="fill-black text-black" src="/assets/icon-cart.svg" alt="" />{cart && count !== 0 ?  <>Remove from cart</> : <>Add to cart</>}</button>
           </div>
         </div>
       </div>
+      {/* <div className="grid place-content-center min-h-screen">
+        <div className="gooey size-48 bg-green-600 ">
+          
+        </div>
+      </div> */}
     </main>
   );
 }
