@@ -107,12 +107,12 @@ grid-template-columns:
   [content-end]
   minmax(0, var(--breakout-size)) [breakout-end]
   minmax(var(--padding-inline), 1fr) [full-width-end];
+  grid-auto-rows: min-content auto;
 }
 
 .content-grid > :not(.breakout, .full-width),
 .full-width > :not(.breakout, .full-width) {
 grid-column: content;
-grid-auto-rows: min-content auto;
 }
 
 .content-grid > .breakout {
