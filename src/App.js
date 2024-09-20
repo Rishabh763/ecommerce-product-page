@@ -69,11 +69,11 @@ function App() {
         handleCartOpen={handleCartOpen}
       />
       {cartOpen ? (
-        <div className="block md:hidden bg-white shadow-2xl rounded-lg shadow-gray-400 px-4 py-6 transition-all z-50">
+        <div className="block md:hidden bg-white shadow-2xl rounded-lg shadow-gray-400 px-4 py-6 transition-all z-30">
           <h1 className="text-base font-bold border-b-2 py-2">Cart</h1>
           {count !== 0 && cart ? (
-            <>
-              <div className="flex gap-4 items-center w-max py-4 text-sm text-gray-600">
+            <div className="flex flex-col ">
+              <div className="flex flex-1 gap-4 items-center w-max py-4 text-sm text-gray-600">
                 <img
                   className="size-14 rounded-md"
                   src={`/assets/image-product-${activeTab}.jpg`}
@@ -93,10 +93,10 @@ function App() {
                   onClick={handleEmptyCart}
                 />
               </div>
-              <button className="py-2 px-4 bg-[#ff7d1a] rounded-lg flex gap-4 font-bold w-full items-center justify-center">
+              <button className="cursor-pointer py-2 px-4 bg-[#ff7d1a] rounded-lg flex gap-4 font-bold w-full items-center justify-center" onClick={handleEmptyCart}>
                 Checkout
               </button>
-            </>
+            </div>
           ) : (
             <div className="min-w-64 min-h-24 grid place-content-center h-full">
               Your cart is empty.
@@ -109,25 +109,25 @@ function App() {
 
       <div
         className={`${
-          isVisible ? "block z-50" : "hidden"
+          isVisible ? "block z-40" : "hidden"
         } overlay fixed inset-0 bg-black/75 grid place-content-center`}
       >
         <div className="flex flex-col items-center gap-8">
           <div className="overlay-image relative">
             <button
-              className="flex items-center justify-center bg-white size-12 absolute top-1/2 right-0 rounded-full cursor-pointer translate-x-0 md:translate-x-1/2 -translate-y-1/2 z-50"
+              className="flex items-center justify-center bg-white size-12 absolute top-1/2 right-0 rounded-full cursor-pointer translate-x-0 md:translate-x-1/2 -translate-y-1/2 z-30"
               onClick={next}
             >
               <img src="/assets/icon-next.svg" alt="cancel" />
             </button>
             <button
-              className="flex items-center justify-center bg-white size-12 absolute top-1/2 left-0 rounded-full cursor-pointer translate-x-0 md:-translate-x-1/2 -translate-y-1/2 z-50"
+              className="flex items-center justify-center bg-white size-12 absolute top-1/2 left-0 rounded-full cursor-pointer translate-x-0 md:-translate-x-1/2 -translate-y-1/2 z-30"
               onClick={previous}
             >
               <img src="/assets/icon-previous.svg" alt="cancel" />
             </button>
             <button
-              className="flex items-center justify-center size-12 absolute top-0 right-0 rounded-full cursor-pointer -translate-y-full z-50"
+              className="flex items-center justify-center size-12 absolute top-0 right-0 rounded-full cursor-pointer -translate-y-full z-30"
               onClick={handleOverlay}
             >
               <img
@@ -150,7 +150,7 @@ function App() {
                   index + 1 === activeTab
                     ? "ring ring-[#ff7d1a] ring-offset-2 opacity-55 "
                     : ""
-                } size-16 cursor-pointer md:size-20 rounded-lg hover:opacity-55 transition-opacity z-50`}
+                } size-16 cursor-pointer md:size-20 rounded-lg hover:opacity-55 transition-opacity z-30`}
                 src={`/assets/image-product-${index + 1}-thumbnail.jpg`}
                 alt={`preview-image-${index + 1}`}
                 onClick={() => changeTab(index)}
@@ -165,7 +165,7 @@ function App() {
       <div className="flex flex-col md:flex-row gap-8 items-center py-6 place-self-center">
         <div className="flex flex-col items-center flex-1 gap-8">
           <img
-            className="max-w-full md:max-w-md rounded-2xl z-40"
+            className="max-w-full md:max-w-md rounded-2xl z-30"
             src={`/assets/image-product-${activeTab}.jpg`}
             alt=""
             onClick={handleOverlay}
@@ -178,7 +178,7 @@ function App() {
                   index + 1 === activeTab
                     ? "ring ring-[#ff7d1a] ring-offset-2 opacity-55"
                     : ""
-                } size-16 cursor-pointer md:size-20 rounded-lg hover:opacity-55 transition-opacity z-40`}
+                } size-16 cursor-pointer md:size-20 rounded-lg hover:opacity-55 transition-opacity z-30`}
                 src={`/assets/image-product-${index + 1}-thumbnail.jpg`}
                 alt={`preview-image-${index + 1}`}
                 onClick={() => changeTab(index)}
@@ -187,7 +187,7 @@ function App() {
           </div>
         </div>
 
-        <div className="flex flex-col gap-4 flex-1 z-40">
+        <div className="flex flex-col gap-4 flex-1 z-30">
           <h1 className="text-2xl font-bold text-gray-500">Sneaker Company</h1>
           <h2 className="text-5xl font-bold">Fall Limited Edition Sneakers</h2>
           <p className="text-base">
